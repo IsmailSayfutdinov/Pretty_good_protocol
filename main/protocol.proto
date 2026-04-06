@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message Packet {
+  oneof msgType {
+    KeyPress keyPress = 1;
+    LedBrightness ledBrightness = 2;
+  }
+}
+
+message KeyPress {
+  uint32 keyId = 1;
+  bool isPressed = 2;
+  uint32 msgOrder = 3;
+  uint32 version = 4;
+}
+
+message LedBrightness {
+  uint32 ledId = 1;
+  uint32 brightness = 2;
+  uint32 color = 3;
+  uint32 msgOrder = 4;
+  uint32 version = 5;
+}
