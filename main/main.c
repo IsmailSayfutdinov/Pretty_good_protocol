@@ -52,12 +52,14 @@ void wifi_init_softap(void)
 void udp_send_task(void *pvParameters)
 {
     int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    int broadcast = 1;
+    setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &broadcast, sizeof(broadcast));
 
     struct sockaddr_in dest_addr = {
         .sin_family = AF_INET,
         .sin_port = htons(UDP_PORT),
     };
-    inet_pton(AF_INET, "192.168.4.2", &dest_addr.sin_addr);
+    inet_pton(AF_INET, "192.168.4.255", &dest_addr.sin_addr);
 
     while (1)
     {
