@@ -1,0 +1,35 @@
+dependencies:
+  idf:
+    source:
+      type: idf
+    version: 5.5.1
+  shoderico/ieee802154_frame:
+    component_hash: 168f7a50b039e71772f3f2936e989f2796cd9faec71a5cf259f4d1f3bb073d61
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.3
+  shoderico/ieee802154_transceiver:
+    component_hash: 606641ef1c90b5b9a6a5212a9783502b8f475b0c238789e7bacb2682ecb829d8
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    - name: shoderico/ieee802154_frame
+      registry_url: https://components.espressif.com
+      require: public
+      version: '*'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.0
+direct_dependencies:
+- idf
+- shoderico/ieee802154_transceiver
+manifest_hash: b3a32278122b9243109be029ab5a255c00aa1b6d7f0724f840ff6192f509e607
+target: esp32c6
+version: 2.0.0
